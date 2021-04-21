@@ -1,4 +1,10 @@
-# FraudsterSnap
+# 📚  FraudsterSnap
+
+## Creadores
+ - [Saúl Montes De Oca](https://github.com/saulmontesdeoca)
+ - [Diego Moreno Acevedo](https://github.com/DiegoMA1) A01025975
+ - [Victor Coeto](https://github.com/vcoeto) A01654866
+ - [Juan Carlos Hurtado](https://github.com/DiegoMA1)
 
 ## Description
 FraudsterSnap is an app that uses ML to predict fraud in bank transactions. we work as an intermediary between the bank and the user so it has
