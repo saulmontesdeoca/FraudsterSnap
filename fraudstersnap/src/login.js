@@ -4,33 +4,44 @@ import withFirebaseAuth from 'react-with-firebase-auth'
 import firebase from 'firebase/app' 
 import 'firebase/auth';
 import FirebaseData from './FirebaseData.js';
+import MainPage from './MainPage.js';
 
 const firebaseApp = firebase.initializeApp(FirebaseData);
-
 class Login extends Component {
-    render() {
-      const {
-        user,
-        signOut,
-        signInWithGoogle,
-      } = this.props;
-      
-      return (
-        <div>
-            {
-              user
-                ? <p>Hello, {user.displayName}</p>
-                : <p>Please sign in.</p>
-            }
+  constructor() {
+    super();
+    this.props = {
+      user,
+      signOut,
+      signInWithGoogle,
+    };
   
-            {
-              user
-                ? <button onClick={signOut}>Sign out</button>
-                : <button onClick={signInWithGoogle}>Sign in with Google</button>
-            }
-        </div>
-      );
-    }
+  }
+
+  renderMain(user, signOut){
+    return(
+      <p>Hello, {user.displayName}</p>,
+      <button onClick={signOut}>Sign out</button>
+    )
+  };
+  renderlogin(signInWithGoogle){ 
+    return(
+      <p>Please sign in.</p>,
+      <button onClick={signInWithGoogle}>Sign in with Google</button>
+    )
+  };
+  
+  render() {    
+    return (
+      <div>
+          {
+            user
+              ? renderMain(user, signOut)
+              : renderlogin(signInWithGoogle)
+          }
+      </div>
+    );
+  }
   }
 
 const firebaseAppAuth = firebaseApp.auth();

@@ -19,7 +19,7 @@ export default class CSVReader1 extends Component {
 
   handleOnError = (err, file, inputElem, reason) => {
     console.log(err)
-  }
+  } 
 
   handleOnRemoveFile = (data) => {
     console.log('---------------------------')
