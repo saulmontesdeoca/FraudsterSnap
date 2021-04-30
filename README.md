@@ -2,7 +2,7 @@
 
 ## 👏 Contributors
  - [Saúl Montes De Oca](https://github.com/saulmontesdeoca) A01025975
- - [Diego Moreno Acevedo](https://github.com/DiegoMA1) A01025975
+ - [Diego Moreno Acevedo](https://github.com/DiegoMA1) A01022113
  - [Victor Coeto](https://github.com/vcoeto) A01654866
 
 
