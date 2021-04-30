@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 import withFirebaseAuth from 'react-with-firebase-auth'
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app' 
 import 'firebase/auth';
-import FirebaseData from './firebase';
+import FirebaseData from './FirebaseData.js';
 
 const firebaseApp = firebase.initializeApp(FirebaseData);
 
