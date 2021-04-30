@@ -14,8 +14,8 @@ function App() {
     onSuccess={respuestaGoogle}
     onFailure={respuestaGoogle}
     cookiePolicy={'single_host_origin'}
-  />,
-  document.getElementById('googleButton')
+  />
+  {/* document.getElementById('googleButton') */}
     </div>
   );
 }
