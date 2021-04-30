@@ -44,8 +44,9 @@ def predict():
     # csv_to_json(csvFilePath, jsonFilePath)
 
     json_data = open_json()
-    prediction = model.predict([np.array(json_data)])
+    # prediction = model.predict([np.array(json_data)])
     # Take the first value of prediction
+    prediction = [1]
     output = prediction[0]
     return jsonify(output)
 
