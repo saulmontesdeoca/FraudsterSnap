@@ -3,6 +3,7 @@ import withFirebaseAuth from 'react-with-firebase-auth'
 import firebase from 'firebase/app' 
 import 'firebase/auth';
 import firebaseConfig from './firebase';
+import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 
 let firebaseApp;
 if (!firebase.apps.length) {
@@ -15,7 +16,7 @@ class Login extends Component {
 
     handleClick(){
       window.open("/transactions","_self");
-      //this opens in a new tab (believe that is what the owner of the question wanted if not you can do window.location.href = "/insert/your/path/here". 
+      //this opens in a tab  
     }
 
     render() {
@@ -27,17 +28,53 @@ class Login extends Component {
       
       return (
         <div>
+          <div>
             {
               user
-                ? <div><p>Hello, {user?.displayName}</p><br/><button onClick={this.handleClick}>Go to transactions</button></div>
-                : <p>Please sign in.</p>
+                ? <div>
+                    <Container>
+                    <Row>
+                      <Col></Col>
+                      <Col>
+                      <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="https://secureservercdn.net/198.71.233.13/cfb.925.myftpupload.com/wp-content/uploads/2010/06/Screening-Fraudulent-E-Commerce-Transactions.jpg" />
+                        <Card.Body>
+                          <Card.Title>Hello, {user?.displayName}</Card.Title>
+                          <Card.Text>
+                            Welcome to FraudsterSnap, please go to transactions to analyse your transactions.
+                          </Card.Text>
+                          <Button variant="primary" onClick={this.handleClick}>Go to transactios</Button>
+                        </Card.Body>
+                      </Card>
+                      </Col>
+                      <Col></Col>
+                    </Row>
+                    </Container>
+                  </div>
+                : <div>
+                  <Container>
+                    <Row>
+                      <Col></Col>
+                      <Col>
+                        <Card style={{ width: '18rem' }}>
+                          <Card.Img variant="top" src="https://secureservercdn.net/198.71.233.13/cfb.925.myftpupload.com/wp-content/uploads/2010/06/Screening-Fraudulent-E-Commerce-Transactions.jpg" />
+                          <Card.Body>
+                            <Card.Title>Please sign in</Card.Title>
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                      <Col></Col>
+                    </Row>
+                  </Container>
+                  </div>
             }
   
             {
               user
-                ? <button onClick={signOut}>Sign out</button>
-                : <button onClick={signInWithGoogle}>Sign in with Google</button>
+                ? <Button onClick={signOut}>Sign out</Button>
+                : <Button onClick={signInWithGoogle}>Sign in with Google</Button>
             }
+            </div>
         </div>
       );
     }

@@ -1,5 +1,6 @@
 # Import libraries
 import csv 
+import pandas as pd
 import json 
 import numpy as np
 from flask import Flask, request, jsonify
@@ -9,8 +10,11 @@ app = Flask(__name__, template_folder="template")
 def open_json():
     with open('test.json', 'r') as j:
         json_data = json.load(j)
-        print(json_data)
         return json_data
+
+def open_csv():
+    df = pd.read_csv('test.csv')
+    return df
 
 def csv_to_json(csvFilePath, jsonFilePath):
     jsonArray = []
@@ -36,18 +40,18 @@ model = pickle.load(open('modelo.pkl','rb'))
 def predict():
     # Get the data from the POST request.
     data = request.get_json(force=True)
-    print(data)
+    print("Received data", data)
     # Make prediction using model loaded from disk as per the data.
 
     # csvFilePath = r'data.csv'
     # jsonFilePath = r'data.json'
     # csv_to_json(csvFilePath, jsonFilePath)
 
-    json_data = open_json()
-    # prediction = model.predict([np.array(json_data)])
+    json_data = open_csv()
+    prediction = model.predict([np.array(json_data)])
     # Take the first value of prediction
-    prediction = [1]
     output = prediction[0]
+    print(output)
     return jsonify(output)
 
 if __name__ == '__main__':
