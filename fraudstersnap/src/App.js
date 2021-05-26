@@ -1,15 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 import Login from './login.js';
+import MainPage from './MainPage.js'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
+      <Switch>
+        <Route exact path="/">
           <Login />
-      </header>
+        </Route>
+        <Route path="/transactions">
+          <MainPage />
+        </Route>
+      </Switch>
     </div>
+  </Router>
+
   );
 }
 
