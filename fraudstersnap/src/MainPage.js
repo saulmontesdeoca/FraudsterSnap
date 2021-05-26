@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { CSVReader } from 'react-papaparse'
+import axios from 'axios';
 
 const buttonRef = React.createRef()
 
-export default class CSVReader1 extends Component {
+export default class MainPage extends Component {
   handleOpenDialog = (e) => {
     // Note that the ref is set async, so it might be null at some point
     if (buttonRef.current) {
@@ -12,6 +13,7 @@ export default class CSVReader1 extends Component {
   }
 
   handleOnFileLoad = (data) => {
+    console.log("Receiving csv file")
     console.log('---------------------------')
     console.log(data)
     console.log('---------------------------')
